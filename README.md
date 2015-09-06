@@ -143,7 +143,7 @@ params = {
 
 So our input names will need to be `name` and `favorite food`:
 
-** Update the form in `views/food_form.erb` to:**
+**Update the form in `views/food_form.erb` to:**
 
 ```html
 <form method="POST" action="/foodreceiver">
@@ -165,7 +165,6 @@ The error message Sinatra gives us is telling us that we don't have a route to r
 
 If you recall, we gave our form a method attribute of `POST` and an `action` attribute of `"/foodreceiver"`. Again, this is the **how** and **where** the data goes from this form.
 
-* I like to use a game of catch metaphor, the form throws the data to the controller via the route. *
 
 Every form needs a corresponding route in the controller file (`app.rb`). Instead of a `get` route (which we used to route users to view an html page), we'll set up a post route:
 
@@ -175,9 +174,9 @@ post '/foodreceiver' do
 end
 ```
 
-Notice that both of the attributes from the form are covered in this route: The `method` `post` and the `action` `/foodreceiver`.
+Notice that both of the attributes from the form are covered in this route: The `method` `post` and the `action` `/foodreceiver`. It's almost like a game of catch - the form is throwing the data to the server, which catches it by having the same receiving address (`/formreceiver`) and way of receiving the data (`post`).
 
-### Paramaramadingdong
+### Param I Am
 
 The data from the form come nicely packaged up in the form of a hash called `params`. Let's set the return value of the post route to be params.to_s, and see what our form does now...
 
@@ -203,7 +202,7 @@ Let's use the key-value pairs in `params` to return the following phrase, using 
 
 Here's the full post route and action in `app.rb`:
 
-** Add this code to `app.rb`: **
+**Add this code to `app.rb`:**
 
 ```
 post '/foodreceiver' do

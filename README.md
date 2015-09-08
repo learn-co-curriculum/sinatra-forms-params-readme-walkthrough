@@ -2,7 +2,7 @@
 
 ## Overview
 
-*It'd be nice to see a description of what we're building. Something like - we're going to learn about forms and Sinatra by building a Dr. Suess application. When you got to our web application, you put in a word and we make it into a Dr Suess Rhyme. It's important to give the student as much context as possible. With something like this they know they are learning forms and sinatra and what they are trying to build*
+In this walkthrough, we're going to be learning about connecting HTML forms to a Sinatra application by building a form that takes a user's name and favorite food (For example, the classic Dr. Seuss "Sam" whose favorite food evenutally becomes "Green Eggs and Ham"), and returns an interpolated string that combines the two ("My name is Sam, and I love Green Eggs and Ham"). 
 
 ## Objectives
 

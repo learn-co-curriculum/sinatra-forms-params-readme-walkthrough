@@ -178,7 +178,7 @@ Notice that both of the attributes from the form are covered in this route: The 
 
 ### Param I Am
 
-The data from the form come nicely packaged up in the form of a hash called `params`. Let's set the return value of the post route to be params.to_s, and see what our form does now...
+The data from the form comes nicely packaged up in the form of a hash called `params`. Let's set the return value of the post route to be params.to_s, and see what our form does now...
 
 ```
 post '/foodreceiver' do

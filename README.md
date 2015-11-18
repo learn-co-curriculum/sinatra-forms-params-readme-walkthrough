@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this walkthrough, we're going to be learning about connecting HTML forms to a Sinatra application by building a form that takes a user's name and favorite food (For example, the classic Dr. Seuss "Sam" whose favorite food evenutally becomes "Green Eggs and Ham"), and returns an interpolated string that combines the two ("My name is Sam, and I love Green Eggs and Ham"). 
+In this walk-through, we're going to be learning about connecting HTML forms to a Sinatra application by building a form that takes a user's name and favorite food (For example, the classic Dr. Seuss "Sam" whose favorite food eventually becomes "Green Eggs and Ham"), and returns an interpolated string that combines the two ("My name is Sam, and I love Green Eggs and Ham"). 
 
 ## Objectives
 
@@ -17,54 +17,17 @@ In this walkthrough, we're going to be learning about connecting HTML forms to a
 
 Think about how many forms you fill out online every day. Credit card payments, logins, registration forms, and even searches Google - all forms.
 
-That's because form are the most common way for users to pass data to a web application. In this walkthrough, we'll create a new HTML form and connect it to a Sinatra application so that we can we can use and manipulate the data provided by the user.
+That's because form are the most common way for users to pass data to a web application. In this walk-through, we'll create a new HTML form and connect it to a Sinatra application so that we can we can use and manipulate the data provided by the user.
 
 ## Instructions
 
-If you want to code along, fork and clone this lesson. Within this lesson is a Sinatra application that you can use to code along.
+If you want to code along, fork and clone this lesson. Within this lesson is a Sinatra application that you can use to code along. There are tests to make sure you're on track.
 
 Let's take a quick tour of the starter code. Open `app.rb`. The only route in our application responds to a `get` request to the `/food_form` URL by rendering the HTML in `food.erb`. We'll be working with `app.rb` (also called our Application Controller), and `food.erb` in the `views` directory. 
 
 ### Starting Your Application
 
 To start this ruby web application, type `shotgun` in the root of this lesson's directory. 
-
-#### Problems with Shotgun
-
-*We can move this to it's own README and link to it. Given where this lesson is, I imagine we've already covered this content but just in case, I wrote it and we can remove it.*
-
-If you see output that tells you that Shotgun/Thin or anything are listening on an IP address like `127.0.0.1` or `0.0.0.0` or localhost, everything worked. It should look something like:
-
-```
-// ♥ shotgun
-== Shotgun/Thin on http://127.0.0.1:9393/
-Thin web server (v1.6.3 codename Protein Powder)
-Maximum connections set to 1024
-Listening on 127.0.0.1:9393, CTRL+C to stop
-```
-
-You might get an error about `bundler`, it'll tell you to run `bundle install`, it'll look like this:
-
-```
-// ♥ shotgun
-bundler: command not found: shotgun
-Install missing gem executables with `bundle install`
-```
-
-Just run `bundle install` and try `shotgun` again.
-
-You also might get an error about a port being in use. It'll look like this:
-
-```
-// ♥ shotgun
-== Shotgun/Thin on http://127.0.0.1:9393/
-Thin web server (v1.6.3 codename Protein Powder)
-Maximum connections set to 1024
-Listening on 127.0.0.1:9393, CTRL+C to stop
-/Users/avi/.rvm/gems/ruby-2.2.2/gems/eventmachine-1.0.8/lib/eventmachine.rb:534:in `start_tcp_server': no acceptor (port is in use or requires root privileges) (RuntimeError)
-```
-
-That means you have another shotgun server running somewhere. Do you have another Terminal or Shell open running a web application or shotgun? You need to find that process or tab that is running a web application using shotgun and shut it down with `CTRL+C`.
 
 ### The Favorite Foods Form
 
@@ -114,7 +77,7 @@ Now if you run `shotgun` and go to the corresponding view (`localhost:9393/food-
 
 If you try submitting the form, nothing will happen. That's because the form is not yet connected to our Application Controller in `app.rb`. There is nothing telling the form to send the user's data to our application.
 
-In order to connect the form to our application, we need to give it expicit directions on **where** and **how** to send the data from the user. Both of these pieces of data are attributes that we give our `<form>` tag. 
+In order to connect the form to our application, we need to give it explicit directions on **where** and **how** to send the data from the user. Both of these pieces of data are attributes that we give our `<form>` tag. 
 
 ```
 <form method="POST" action="/food">
@@ -122,9 +85,7 @@ In order to connect the form to our application, we need to give it expicit dire
 
 + The `method` attribute tells the form what kind of request should be fired to the server when the submit button is clicked. In general, forms use POST request, because it is 'posting' data to the server.
 
-+ The `action` attribute tells the form what specific route the post request should be sent to. In this case, we're posting to a route called `/food-receiver`
-
-* Not enough about action routing. Before I would explain params and name I would make the route connect.*
++ The `action` attribute tells the form what specific route the post request should be sent to. In this case, we're posting to a route called `/food`
 
 Each form field `<input>` also must define a `name` attribute. The `name` attribute of an `<input>` defines how our application will identify each `<input>` data. 
 
@@ -146,7 +107,7 @@ So our input names will need to be `name` and `favorite food`:
 **Update the form in `views/food_form.erb` to:**
 
 ```html
-<form method="POST" action="/foodreceiver">
+<form method="POST" action="/food">
   <p>Your Name:<input type="text" name="name"></p>
   <p>Your Favorite Food:<input type="text" name="favorite_food"></p>
   <input type="submit">
@@ -163,25 +124,25 @@ We get a Sinatra error! This is great news. Sinatra errors tell us exactly what 
 
 The error message Sinatra gives us is telling us that we don't have a route to receive the data from the HTML form that we created in `food_form.erb`. 
 
-If you recall, we gave our form a method attribute of `POST` and an `action` attribute of `"/foodreceiver"`. Again, this is the **how** and **where** the data goes from this form.
+If you recall, we gave our form a method attribute of `POST` and an `action` attribute of `"/food"`. Again, this is the **how** and **where** the data goes from this form.
 
 
 Every form needs a corresponding route in the controller file (`app.rb`). Instead of a `get` route (which we used to route users to view an html page), we'll set up a post route:
 
 ```ruby
-post '/foodreceiver' do
+post '/food' do
 
 end
 ```
 
-Notice that both of the attributes from the form are covered in this route: The `method` `post` and the `action` `/foodreceiver`. It's almost like a game of catch - the form is throwing the data to the server, which catches it by having the same receiving address (`/formreceiver`) and way of receiving the data (`post`).
+Notice that both of the attributes from the form are covered in this route: The `method` `post` and the `action` `/food`. It's almost like a game of catch - the form is throwing the data to the server, which catches it by having the same receiving address (`/food`) and way of receiving the data (`post`).
 
 ### Param I Am
 
 The data from the form comes nicely packaged up in the form of a hash called `params`. Let's set the return value of the post route to be params.to_s, and see what our form does now...
 
 ```
-post '/foodreceiver' do
+post '/food' do
     params.to_s
   end
 ```
@@ -205,7 +166,7 @@ Here's the full post route and action in `app.rb`:
 **Add this code to `app.rb`:**
 
 ```
-post '/foodreceiver' do
+post '/food' do
   "My name is #{params[:name}}, and I love #{params[:favorite_foods]}"
 end
 ```

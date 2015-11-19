@@ -89,21 +89,6 @@ In order to connect the form to our application, we need to give it explicit dir
 
 Each form field `<input>` also must define a `name` attribute. The `name` attribute of an `<input>` defines how our application will identify each `<input>` data. 
 
-All user submitted data will appear in a `params` hash accessible throughout our Sinatra controllers. The `name` attribute of an `<input>` corresponds to a key in the `params` hash for that data.
-
-If you create a text field input with `<input type="text" name="favorite_food">`, whenever the user submits that form, you will be able to access the data entered into the Favorite Foods text box via `params[:favorite_food]`.
-
-This is because we will be passing our data in the form of a hash, where the key will be the name of the data, and the value will be the data itself. In this case, we want our hash (which we call `params`) to look something like this:
-
-```ruby
-params = { 
-  :name => "Sam",
-	:favorite_food => "Green Eggs and Ham"
-}
-```
-
-So our input names will need to be `name` and `favorite food`:
-
 **Update the form in `views/food_form.erb` to:**
 
 ```html
@@ -136,6 +121,21 @@ end
 ```
 
 Notice that both of the attributes from the form are covered in this route: The `method` `post` and the `action` `/food`. It's almost like a game of catch - the form is throwing the data to the server, which catches it by having the same receiving address (`/food`) and way of receiving the data (`post`).
+
+All user submitted data will appear in a `params` hash accessible throughout our Sinatra controllers. The `name` attribute of an `<input>` corresponds to a key in the `params` hash for that data.
+
+If you create a text field input with `<input type="text" name="favorite_food">`, whenever the user submits that form, you will be able to access the data entered into the Favorite Foods text box via `params[:favorite_food]`.
+
+This is because we will be passing our data in the form of a hash, where the key will be the name of the data, and the value will be the data itself. In this case, we want our hash (which we call `params`) to look something like this:
+
+```ruby
+params = { 
+  :name => "Sam",
+  :favorite_food => "Green Eggs and Ham"
+}
+```
+
+So our input names will need to be `name` and `favorite food`
 
 ### Param I Am
 

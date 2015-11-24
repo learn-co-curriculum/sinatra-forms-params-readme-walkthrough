@@ -1,5 +1,7 @@
 tags:
-  - tag1
+  - sinatra
+  - forms
+  - post
+  - routes
 languages:
-  - language1
-resources: 0
+  - ruby

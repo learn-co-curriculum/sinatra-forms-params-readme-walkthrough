@@ -11,7 +11,7 @@ In this walk-through, we're going to be learning about connecting HTML forms to 
 3. Build a `POST` route in Sinatra's application controller to accept data from a form via params.
 4. Understand that params are a Ruby hash containing form data.
 
-![Green Eggs and Ham](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSwGoDVUDPLd8f_397Fp9BrLKlu-6msu0sSiT0LeEZQ8Ga2228z)
+![Green Eggs and Ham](https://s3.amazonaws.com/learn-verified/green-eggs-ham.jpeg)
 
 ## Forms, Forms, Forms!
 

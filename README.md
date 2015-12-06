@@ -2,26 +2,26 @@
 
 ## Overview
 
-In this walk-through, we're going to be learning about connecting HTML forms to a Sinatra application by building a form that takes a user's name and favorite food (For example, the classic Dr. Seuss "Sam" whose favorite food eventually becomes "Green Eggs and Ham"), and returns an interpolated string that combines the two ("My name is Sam, and I love Green Eggs and Ham"). 
+In this codealong lesson, we'll create a new HTML form and connect it to a Sinatra application so that we can use and manipulate the data provided by the user.
 
 ## Objectives
 
 1. Build a basic HTML form
-2. Connect an HTML form to a sinatra application via the `method` and `action` attributes
+2. Connect an HTML form to a Sinatra application via the `method` and `action` attributes
 3. Build a `POST` route in Sinatra's application controller to accept data from a form via params.
-4. Understand that params are a Ruby hash containing form data.
+4. Define params as a Ruby hash containing form data.
 
 ![Green Eggs and Ham](https://s3.amazonaws.com/learn-verified/green-eggs-ham.jpeg)
 
 ## Forms, Forms, Forms!
 
-Think about how many forms you fill out online every day. Credit card payments, logins, registration forms, and even searches Google - all forms.
+Think about how many forms you fill out online every day. Credit card payments, logins, registration forms, and even Google searches are all examples of forms. That's because forms are the most common way for users to pass data to a web application.
 
-That's because form are the most common way for users to pass data to a web application. In this walk-through, we'll create a new HTML form and connect it to a Sinatra application so that we can we can use and manipulate the data provided by the user.
+Specifically in this code-along, we'll connect HTML forms to a Sinatra application by building a form that takes a user's name and favorite food and returns an interpolated string. For example, if the name were "Sam" whose favorite food is "Green Eggs and Ham," we will get an interpolated string of "My name is Sam, and I love Green Eggs and Ham."
 
 ## Instructions
 
-If you want to code along, fork and clone this lesson. Within this lesson is a Sinatra application that you can use to code along. There are tests to make sure you're on track.
+Fork and clone this lesson. There are tests to make sure you're on track.
 
 Let's take a quick tour of the starter code. Open `app.rb`. The only route in our application responds to a `get` request to the `/food_form` URL by rendering the HTML in `food.erb`. We'll be working with `app.rb` (also called our Application Controller), and `food.erb` in the `views` directory. 
 
@@ -57,7 +57,7 @@ That's all a basic form needs!
 
 #### Our First Form
 
-Let's build a form with two input fields, one for your name and one for your favorite food. We'll enclose our `<input>` tags in `<p>` tags so we can give them some textual context.
+Let's build a form with two input fields: one for your name and one for your favorite food. We'll enclose our `<input>` tags in `<p>` tags so we can give them some textual context.
 
 Put it all together and your HTML form will look like this:
 
@@ -111,8 +111,7 @@ The error message Sinatra gives us is telling us that we don't have a route to r
 
 If you recall, we gave our form a method attribute of `POST` and an `action` attribute of `"/food"`. Again, this is the **how** and **where** the data goes from this form.
 
-
-Every form needs a corresponding route in the controller file (`app.rb`). Instead of a `get` route (which we used to route users to view an html page), we'll set up a post route:
+Every form also needs a corresponding route in the controller file (`app.rb`). Instead of a `get` route (which we used to route users to view an html page), we'll set up a post route:
 
 ```ruby
 post '/food' do

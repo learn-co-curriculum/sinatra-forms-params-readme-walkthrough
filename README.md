@@ -101,7 +101,7 @@ Each form field `<input>` also must define a `name` attribute. The `name` attrib
 
 Let's see what happens when we submit this form...
 
-![Sinatra Error](https://curriculum-content.s3.amazonaws.com/web-development/Sinatra/localhost_9393_foodreceiver.png)
+![Sinatra Error](http://s3.amazonaws.com/readme-pics/localhost_9393_food.png)
 
 We get a Sinatra error! This is great news. Sinatra errors tell us exactly what we need to do next to make the form work.
 

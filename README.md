@@ -71,7 +71,7 @@ Put it all together and your HTML form will look like this:
 </form>
 ```
 
-Now if you run `shotgun` and go to the corresponding view (`localhost:9393/food-form`, you'll see your very basic form.
+Now if you run `shotgun` and go to the corresponding view (`localhost:9393/food_form`, you'll see your very basic form.
 
 ### Connecting the form to your Sinatra App
 

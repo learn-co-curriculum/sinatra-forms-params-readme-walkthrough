@@ -157,7 +157,7 @@ Great! This means you've been able to successfully get the data from the form in
 Let's use the key-value pairs in `params` to return the following phrase, using good-old string interpolation:
 
 ```
-"My name is #{params[:name}}, and I love #{params[:favorite_foods]}"
+"My name is #{params[:name}}, and I love #{params[:favorite_food]}"
 ```
 
 Here's the full post route and action in `app.rb`:
@@ -166,7 +166,7 @@ Here's the full post route and action in `app.rb`:
 
 ```
 post '/food' do
-  "My name is #{params[:name]}, and I love #{params[:favorite_foods]}"
+  "My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 end
 ```
 

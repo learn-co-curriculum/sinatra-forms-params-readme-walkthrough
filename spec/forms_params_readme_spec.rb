@@ -12,10 +12,10 @@ describe "App" do
     it 'displays the params' do 
       params = {
         :name => "Carl",
-        :favorite_foods => "fried chicken"
+        :favorite_food => "fried chicken"
       }
       post '/food', params
-      expect(last_response.body).to eq("My name is #{params[:name]}, and I love #{params[:favorite_foods]}"
+      expect(last_response.body).to eq("My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 )
       end
 

@@ -71,7 +71,7 @@ Put it all together and your HTML form will look like this:
 </form>
 ```
 
-Now if you run `shotgun` and go to the corresponding view (`localhost:9393/food-form`, you'll see your very basic form.
+Now if you run `shotgun` and go to the corresponding view (`localhost:9393/food_form`, you'll see your very basic form.
 
 ### Connecting the form to your Sinatra App
 
@@ -101,7 +101,7 @@ Each form field `<input>` also must define a `name` attribute. The `name` attrib
 
 Let's see what happens when we submit this form...
 
-![Sinatra Error](https://curriculum-content.s3.amazonaws.com/web-development/Sinatra/localhost_9393_foodreceiver.png)
+![Sinatra Error](http://s3.amazonaws.com/readme-pics/localhost_9393_food.png)
 
 We get a Sinatra error! This is great news. Sinatra errors tell us exactly what we need to do next to make the form work.
 
@@ -157,7 +157,7 @@ Great! This means you've been able to successfully get the data from the form in
 Let's use the key-value pairs in `params` to return the following phrase, using good-old string interpolation:
 
 ```
-"My name is #{params[:name}}, and I love #{params[:favorite_foods]}"
+"My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 ```
 
 Here's the full post route and action in `app.rb`:
@@ -166,7 +166,7 @@ Here's the full post route and action in `app.rb`:
 
 ```
 post '/food' do
-  "My name is #{params[:name]}, and I love #{params[:favorite_foods]}"
+  "My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 end
 ```
 

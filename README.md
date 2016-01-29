@@ -172,4 +172,4 @@ end
 
 Submit the form and see what happens! If you've gotten this far you can successfully connect an HTML form to your Sinatra app, and can use the params hash to use and manipulate data from the user. 
 
-<a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough' title='HTML Forms and Params'>HTML Forms and Params</a> on Learn.co and start learning to code for free.</p>

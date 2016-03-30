@@ -23,7 +23,7 @@ Specifically in this code-along, we'll connect HTML forms to a Sinatra applicati
 
 Fork and clone this lesson. There are tests to make sure you're on track.
 
-Let's take a quick tour of the starter code. Open `app.rb`. The only route in our application responds to a `get` request to the `/food_form` URL by rendering the HTML in `food.erb`. We'll be working with `app.rb` (also called our Application Controller), and `food.erb` in the `views` directory. 
+Let's take a quick tour of the starter code. Open `app.rb`. The only route in our application responds to a `get` request to the `/food_form` URL by rendering the HTML in `food.erb`. We'll be working with `app.rb` (also called our Application Controller), and `food_form.erb` in the `views` directory. 
 
 ### Starting Your Application
 
@@ -173,3 +173,5 @@ end
 Submit the form and see what happens! If you've gotten this far you can successfully connect an HTML form to your Sinatra app, and can use the params hash to use and manipulate data from the user. 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough' title='HTML Forms and Params'>HTML Forms and Params</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough'>HTML Forms and Params</a> on Learn.co and start learning to code for free.</p>

@@ -170,6 +170,8 @@ post '/food' do
 end
 ```
 
-Submit the form and see what happens! If you've gotten this far you can successfully connect an HTML form to your Sinatra app, and can use the params hash to use and manipulate data from the user. 
+Submit the form and see what happens! If you've gotten this far, you can successfully connect an HTML form to your Sinatra app and  use the params hash to use and manipulate data from the user. 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough'>HTML Forms and Params</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/sinatra-forms-params-readme-walkthrough'>HTML Forms and Params</a> on Learn.co and start learning to code for free.</p>

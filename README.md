@@ -143,7 +143,7 @@ params = {
 }
 ```
 
-So our input names will need to be `name` and `favorite food`
+So our input names will need to be `name` and `favorite_food`.
 
 ### Param I Am
 

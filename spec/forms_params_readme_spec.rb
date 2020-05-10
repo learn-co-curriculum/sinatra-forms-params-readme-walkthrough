@@ -31,7 +31,7 @@ describe "App" do
 
       post '/food', params
 
-      expect(last_response.body).to eq("My name is #{params[:name]}, and I love #{params[:favorite_food]}")
+      expect(last_response.body).to eq("My name is #{params[:name]}, and I love #{params[:favorite_food]}.")
     end
   end
 end

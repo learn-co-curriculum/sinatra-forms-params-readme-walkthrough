@@ -92,7 +92,7 @@ In order to connect the form to our application, we need to give it explicit dir
 <form method="POST" action="/food">
 ```
 
-+ The `method` attribute tells the form what kind of request should be fired to the server when the submit button is clicked. In general, forms use POST request, because it is 'posting' data to the server.
++ The `method` attribute tells the form what kind of request should be fired to the server when the submit button is clicked. In general, forms use a POST request, because it is 'posting' data to the server.
 
 + The `action` attribute tells the form what specific route the post request should be sent to. In this case, we're posting to a route called `/food`
 
@@ -161,7 +161,7 @@ When you submit your form, you should now see the contents of `params` displayed
 {"name"=>"Sam", "favorite_food"=>"Green Eggs and Ham"}
 ```
 
-Great! This means you've been able to successfully get the data from the form in to the controller, and can now manipulate it any way you want.
+Great! This means you've been able to successfully get the data from the form into the controller, and can now manipulate it any way you want.
 
 Let's use the key-value pairs in `params` to return the following phrase, using good-old string interpolation:
 

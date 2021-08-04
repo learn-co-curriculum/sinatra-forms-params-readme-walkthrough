@@ -27,39 +27,32 @@ Let's take a quick tour of the starter code. Open `app.rb`. The only route in ou
 
 ### Starting Your Application
 
-To start this Ruby web application, type `shotgun` in your terminal within the root of this lesson's directory. If you're using a local development environment, your app will be accessible at [localhost:9393](http://localhost:9393/) in your web browser. If you're in the Learn IDE, running the `shotgun` command will provide a URI where you can access your Sinatra app:
-```
-// ♥ shotgun
-== Shotgun/Thin on http://159.203.88.6:30006/
-Thin web server (v1.6.3 codename Protein Powder)
-Maximum connections set to 1024
-Listening on 159.203.88.6:30006, CTRL+C to stop
-```
-
-Given the above output, copying and pasting `http://159.203.88.6:30006/` into your web browser would take you to your running application.
+To start this Ruby web application, type `shotgun` in your terminal within the root of this lesson's directory. Your app will be accessible at [localhost:9393](http://localhost:9393/) in your web browser.
 
 ### The Favorite Foods Form
 
-Once your `shotgun` server is up and running, navigate to the `/food_form` route (again, [localhost:9393/food_form](http://localhost:9393/food_form) if you're using a local environment and something similar to [159.203.88.6:30006/food_form](http://159.203.88.6:30006/food_form) if you're in the IDE).
+Once your `shotgun` server is up and running, navigate to the `/food_form`
+route, [localhost:9393/food_form](http://localhost:9393/food_form).
 
-You'll see a very basic HTML page. Your first task is to build a form on this page.
+You'll see a very basic HTML page. Your first task is to build a form on this
+page.
 
 #### Form Review
 
 We're not going to dive too deep into form-making here, but the basics are:
 
-+  HTML forms need a `<form>` opening tag and a `</form>` closing tag.
+- HTML forms need a `<form>` opening tag and a `</form>` closing tag.
 
-+ Each form field (text, date, password, etc) has a tag (usually `<input>`) with an attribute `type` denoting the type of form field. For example, a text box field looks like this:
+- Each form field (text, date, password, etc) has a tag (usually `<input>`) with an attribute `type` denoting the type of form field. For example, a text box field looks like this:
 
 ```html
-<input type="text">
+<input type="text" />
 ```
 
-+ A form needs a submit button:
+- A form needs a submit button:
 
 ```html
-<input type="submit">
+<input type="submit" />
 ```
 
 That's all a basic form needs!
@@ -74,9 +67,9 @@ Put it all together and your HTML form will look like this:
 
 ```html
 <form>
-  <p>Your Name: <input type="text"></p>
-  <p>Your Favorite Food: <input type="text"></p>
-  <input type="submit">
+  <p>Your Name: <input type="text" /></p>
+  <p>Your Favorite Food: <input type="text" /></p>
+  <input type="submit" />
 </form>
 ```
 
@@ -88,13 +81,13 @@ If you try submitting the form, nothing will happen. That's because the form is 
 
 In order to connect the form to our application, we need to give it explicit directions on **where** and **how** to send the data from the user. Both of these pieces of data are attributes that we give our `<form>` tag.
 
-```
-<form method="POST" action="/food">
+```html
+<form method="POST" action="/food"></form>
 ```
 
-+ The `method` attribute tells the form what kind of request should be fired to the server when the submit button is clicked. In general, forms use a POST request, because it is 'posting' data to the server.
+- The `method` attribute tells the form what kind of request should be fired to the server when the submit button is clicked. In general, forms use a POST request, because it is 'posting' data to the server.
 
-+ The `action` attribute tells the form what specific route the post request should be sent to. In this case, we're posting to a route called `/food`
+- The `action` attribute tells the form what specific route the post request should be sent to. In this case, we're posting to a route called `/food`
 
 Each form field `<input>` also must define a `name` attribute. The `name` attribute of an `<input>` defines how our application will identify each `<input>` data.
 
@@ -102,9 +95,9 @@ Each form field `<input>` also must define a `name` attribute. The `name` attrib
 
 ```html
 <form method="POST" action="/food">
-  <p>Your Name: <input type="text" name="name"></p>
-  <p>Your Favorite Food: <input type="text" name="favorite_food"></p>
-  <input type="submit">
+  <p>Your Name: <input type="text" name="name" /></p>
+  <p>Your Favorite Food: <input type="text" name="favorite_food" /></p>
+  <input type="submit" />
 </form>
 ```
 
@@ -149,15 +142,15 @@ So our input names will need to be `name` and `favorite_food`.
 
 The data from the form comes nicely packaged up in the form of a hash called `params`. Let's set the return value of the post route to be params.to_s, and see what our form does now...
 
-```
+```rb
 post '/food' do
-    params.to_s
-  end
+  params.to_s
+end
 ```
 
 When you submit your form, you should now see the contents of `params` displayed as a hash in your browser like this:
 
-```
+```rb
 {"name"=>"Sam", "favorite_food"=>"Green Eggs and Ham"}
 ```
 
@@ -165,7 +158,7 @@ Great! This means you've been able to successfully get the data from the form in
 
 Let's use the key-value pairs in `params` to return the following phrase, using good-old string interpolation:
 
-```
+```rb
 "My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 ```
 
@@ -173,7 +166,7 @@ Here's the full post route and action in `app.rb`:
 
 **Add this code to `app.rb`:**
 
-```
+```rb
 post '/food' do
   "My name is #{params[:name]}, and I love #{params[:favorite_food]}."
 end
